@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_235702) do
+ActiveRecord::Schema.define(version: 2021_02_25_212255) do
 
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "crypted_password"
+    t.string "salt"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
+    t.index ["name"], name: "index_users_on_name", unique: true
+    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
+  end
+
+  add_foreign_key "messages", "users"
 end

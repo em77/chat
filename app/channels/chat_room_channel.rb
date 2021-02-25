@@ -8,6 +8,6 @@ class ChatRoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    Message.create! body: data["message"]
+    Message.create!(body: data["message"], user: self.connection.current_user)
   end
 end
