@@ -1,3 +1,22 @@
-// Place all the styles related to the chat_channels controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+#messages {
+  height: 400px;
+  width: 700px;
+  border-style: dotted;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.message {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.message-body {
+  float: left;
+}
+
+.message-time {
+  float: right;
+  color: #dcd5dc;
+}

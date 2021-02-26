@@ -11,7 +11,7 @@ const chatRoomChannel = consumer.subscriptions.create("ChatRoomChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    $("#messages").append(data["message"]);
+    $("#messages").prepend(data["message"]);
   },
 
   speak(message) {

@@ -1,5 +1,10 @@
 <div class="message">
-  <p>
+  <div class="message-body">
     <%= "#{message.user.name}: #{message.body}" %>
-  </p>
+  </div>
+
+  <div class="message-time">
+    <%= message.created_at.in_time_zone("America/Toronto")
+      .strftime("%B %-d, %Y - %-l:%M %p") %>
+  </div>
 </div>
