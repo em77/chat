@@ -6,11 +6,12 @@ chat rooms and have live conversations with multiple users and persisted chat hi
 ## Setup ##
 
 1. Ensure Ruby 2.7.2 is installed and selected on your machine.
-2. Download and navigate into the project in your terminal.
-3. Run `bundle`
-4. Run `rails db:migrate`
-5. Run `rails s`
-6. Navigate to `localhost:3000` in your browser of choice.
+2. Ensure `bundler` is installed or install it (`gem install bundler`)
+3. Download and navigate into the project in your terminal.
+4. Run `bundle`
+5. Run `rails db:migrate`
+6. Run `rails s`
+7. Navigate to `localhost:3000` in your browser of choice.
 
 ## Usage ##
 
