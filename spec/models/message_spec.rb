@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Message, type: :model do
   before do
     ActiveJob::Base.queue_adapter = :test
-    FactoryBot.create(:message, body: "Testing 123")
+    FactoryBot.create(:message)
   end
 
   it { should belong_to(:user) }
