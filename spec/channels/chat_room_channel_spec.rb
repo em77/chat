@@ -11,7 +11,7 @@ RSpec.describe ChatRoomChannel, type: :channel do
   end
 
   describe "#speak" do
-    let(:data) { { "message" => "Hello, world!", "chat_room_id" => chat_room.id } }
+    let(:data) { { "message" => SecureRandom.uuid, "chat_room_id" => chat_room.id } }
     let(:user) { FactoryBot.create(:user) }
 
     before do
@@ -20,9 +20,10 @@ RSpec.describe ChatRoomChannel, type: :channel do
     end
 
     it "should create a message" do
-      expect { perform :speak, data }.to change { Message.count }.by(1)
-      expect(Message.last.body).to eq "Hello, world!"
-      expect(Message.last.user_id).to eq user.id
+      expect { perform :speak, data }.to change { Message.count }
+      message = Message.find_by_body(data["message"])
+      expect(message.nil?).to_not be true
+      expect(message.user_id).to eq user.id
     end
   end
 end
