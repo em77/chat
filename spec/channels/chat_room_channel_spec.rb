@@ -24,6 +24,7 @@ RSpec.describe ChatRoomChannel, type: :channel do
       message = Message.find_by_body(data["message"])
       expect(message.nil?).to_not be true
       expect(message.user_id).to eq user.id
+      expect(message.chat_room_id).to eq chat_room.id
     end
   end
 end
